@@ -1,0 +1,794 @@
+> library(openxlsx)
+> training.raw.data<-read.xlsx('//win3/staff/homes/christod/Desktop/train.xlsx')
+> training.raw.data
+    PassengerId Survived Pclass
+1             1        0      3
+2             2        1      1
+3             3        1      3
+4             4        1      1
+5             5        0      3
+6             6        0      3
+7             7        0      1
+8             8        0      3
+9             9        1      3
+10           10        1      2
+11           11        1      3
+12           12        1      1
+13           13        0      3
+14           14        0      3
+15           15        0      3
+16           16        1      2
+17           17        0      3
+18           18        1      2
+19           19        0      3
+20           20        1      3
+21           21        0      2
+22           22        1      2
+23           23        1      3
+24           24        1      1
+25           25        0      3
+26           26        1      3
+27           27        0      3
+28           28        0      1
+29           29        1      3
+30           30        0      3
+31           31        0      1
+32           32        1      1
+33           33        1      3
+34           34        0      2
+35           35        0      1
+36           36        0      1
+37           37        1      3
+38           38        0      3
+39           39        0      3
+40           40        1      3
+41           41        0      3
+42           42        0      2
+43           43        0      3
+44           44        1      2
+45           45        1      3
+46           46        0      3
+47           47        0      3
+48           48        1      3
+49           49        0      3
+50           50        0      3
+51           51        0      3
+52           52        0      3
+53           53        1      1
+54           54        1      2
+55           55        0      1
+56           56        1      1
+57           57        1      2
+58           58        0      3
+59           59        1      2
+60           60        0      3
+61           61        0      3
+62           62        1      1
+63           63        0      1
+64           64        0      3
+65           65        0      1
+66           66        1      3
+67           67        1      2
+68           68        0      3
+69           69        1      3
+70           70        0      3
+71           71        0      2
+72           72        0      3
+73           73        0      2
+74           74        0      3
+75           75        1      3
+76           76        0      3
+77           77        0      3
+78           78        0      3
+79           79        1      2
+80           80        1      3
+81           81        0      3
+82           82        1      3
+83           83        1      3
+                                                                                  Name
+1                                                              Braund, Mr. Owen Harris
+2                                  Cumings, Mrs. John Bradley (Florence Briggs Thayer)
+3                                                               Heikkinen, Miss. Laina
+4                                         Futrelle, Mrs. Jacques Heath (Lily May Peel)
+5                                                             Allen, Mr. William Henry
+6                                                                     Moran, Mr. James
+7                                                              McCarthy, Mr. Timothy J
+8                                                       Palsson, Master. Gosta Leonard
+9                                    Johnson, Mrs. Oscar W (Elisabeth Vilhelmina Berg)
+10                                                 Nasser, Mrs. Nicholas (Adele Achem)
+11                                                     Sandstrom, Miss. Marguerite Rut
+12                                                            Bonnell, Miss. Elizabeth
+13                                                      Saundercock, Mr. William Henry
+14                                                         Andersson, Mr. Anders Johan
+15                                                Vestrom, Miss. Hulda Amanda Adolfina
+16                                                     Hewlett, Mrs. (Mary D Kingcome)
+17                                                                Rice, Master. Eugene
+18                                                        Williams, Mr. Charles Eugene
+19                             Vander Planke, Mrs. Julius (Emelia Maria Vandemoortele)
+20                                                             Masselmani, Mrs. Fatima
+21                                                                Fynney, Mr. Joseph J
+22                                                               Beesley, Mr. Lawrence
+23                                                         McGowan, Miss. Anna "Annie"
+24                                                        Sloper, Mr. William Thompson
+25                                                       Palsson, Miss. Torborg Danira
+26                           Asplund, Mrs. Carl Oscar (Selma Augusta Emilia Johansson)
+27                                                             Emir, Mr. Farred Chehab
+28                                                      Fortune, Mr. Charles Alexander
+29                                                       O'Dwyer, Miss. Ellen "Nellie"
+30                                                                 Todoroff, Mr. Lalio
+31                                                            Uruchurtu, Don. Manuel E
+32                                      Spencer, Mrs. William Augustus (Marie Eugenie)
+33                                                            Glynn, Miss. Mary Agatha
+34                                                               Wheadon, Mr. Edward H
+35                                                             Meyer, Mr. Edgar Joseph
+36                                                      Holverson, Mr. Alexander Oskar
+37                                                                    Mamee, Mr. Hanna
+38                                                            Cann, Mr. Ernest Charles
+39                                                  Vander Planke, Miss. Augusta Maria
+40                                                         Nicola-Yarred, Miss. Jamila
+41                                      Ahlin, Mrs. Johan (Johanna Persdotter Larsson)
+42                            Turpin, Mrs. William John Robert (Dorothy Ann Wonnacott)
+43                                                                 Kraeff, Mr. Theodor
+44                                            Laroche, Miss. Simonne Marie Anne Andree
+45                                                       Devaney, Miss. Margaret Delia
+46                                                            Rogers, Mr. William John
+47                                                                   Lennon, Mr. Denis
+48                                                           O'Driscoll, Miss. Bridget
+49                                                                 Samaan, Mr. Youssef
+50                                       Arnold-Franchi, Mrs. Josef (Josefine Franchi)
+51                                                          Panula, Master. Juha Niilo
+52                                                        Nosworthy, Mr. Richard Cater
+53                                            Harper, Mrs. Henry Sleeper (Myna Haxtun)
+54                                  Faunthorpe, Mrs. Lizzie (Elizabeth Anne Wilkinson)
+55                                                      Ostby, Mr. Engelhart Cornelius
+56                                                                   Woolner, Mr. Hugh
+57                                                                   Rugg, Miss. Emily
+58                                                                 Novel, Mr. Mansouer
+59                                                        West, Miss. Constance Mirium
+60                                                  Goodwin, Master. William Frederick
+61                                                               Sirayanian, Mr. Orsen
+62                                                                 Icard, Miss. Amelie
+63                                                         Harris, Mr. Henry Birkhardt
+64                                                               Skoog, Master. Harald
+65                                                               Stewart, Mr. Albert A
+66                                                            Moubarek, Master. Gerios
+67                                                        Nye, Mrs. (Elizabeth Ramell)
+68                                                            Crease, Mr. Ernest James
+69                                                     Andersson, Miss. Erna Alexandra
+70                                                                   Kink, Mr. Vincenz
+71                                                          Jenkin, Mr. Stephen Curnow
+72                                                          Goodwin, Miss. Lillian Amy
+73                                                                Hood, Mr. Ambrose Jr
+74                                                         Chronopoulos, Mr. Apostolos
+75                                                                       Bing, Mr. Lee
+76                                                             Moen, Mr. Sigurd Hansen
+77                                                                   Staneff, Mr. Ivan
+78                                                            Moutal, Mr. Rahamin Haim
+79                                                       Caldwell, Master. Alden Gates
+80                                                            Dowdell, Miss. Elizabeth
+81                                                                Waelens, Mr. Achille
+82                                                         Sheerlinck, Mr. Jan Baptist
+83                                                      McDermott, Miss. Brigdet Delia
+       Sex   Age SibSp Parch             Ticket     Fare
+1     male 22.00     1     0          A/5 21171   7.2500
+2   female 38.00     1     0           PC 17599  71.2833
+3   female 26.00     0     0   STON/O2. 3101282   7.9250
+4   female 35.00     1     0             113803  53.1000
+5     male 35.00     0     0             373450   8.0500
+6     male    NA     0     0             330877   8.4583
+7     male 54.00     0     0              17463  51.8625
+8     male  2.00     3     1             349909  21.0750
+9   female 27.00     0     2             347742  11.1333
+10  female 14.00     1     0             237736  30.0708
+11  female  4.00     1     1            PP 9549  16.7000
+12  female 58.00     0     0             113783  26.5500
+13    male 20.00     0     0          A/5. 2151   8.0500
+14    male 39.00     1     5             347082  31.2750
+15  female 14.00     0     0             350406   7.8542
+16  female 55.00     0     0             248706  16.0000
+17    male  2.00     4     1             382652  29.1250
+18    male    NA     0     0             244373  13.0000
+19  female 31.00     1     0             345763  18.0000
+20  female    NA     0     0               2649   7.2250
+21    male 35.00     0     0             239865  26.0000
+22    male 34.00     0     0             248698  13.0000
+23  female 15.00     0     0             330923   8.0292
+24    male 28.00     0     0             113788  35.5000
+25  female  8.00     3     1             349909  21.0750
+26  female 38.00     1     5             347077  31.3875
+27    male    NA     0     0               2631   7.2250
+28    male 19.00     3     2              19950 263.0000
+29  female    NA     0     0             330959   7.8792
+30    male    NA     0     0             349216   7.8958
+31    male 40.00     0     0           PC 17601  27.7208
+32  female    NA     1     0           PC 17569 146.5208
+33  female    NA     0     0             335677   7.7500
+34    male 66.00     0     0         C.A. 24579  10.5000
+35    male 28.00     1     0           PC 17604  82.1708
+36    male 42.00     1     0             113789  52.0000
+37    male    NA     0     0               2677   7.2292
+38    male 21.00     0     0         A./5. 2152   8.0500
+39  female 18.00     2     0             345764  18.0000
+40  female 14.00     1     0               2651  11.2417
+41  female 40.00     1     0               7546   9.4750
+42  female 27.00     1     0              11668  21.0000
+43    male    NA     0     0             349253   7.8958
+44  female  3.00     1     2      SC/Paris 2123  41.5792
+45  female 19.00     0     0             330958   7.8792
+46    male    NA     0     0    S.C./A.4. 23567   8.0500
+47    male    NA     1     0             370371  15.5000
+48  female    NA     0     0              14311   7.7500
+49    male    NA     2     0               2662  21.6792
+50  female 18.00     1     0             349237  17.8000
+51    male  7.00     4     1            3101295  39.6875
+52    male 21.00     0     0         A/4. 39886   7.8000
+53  female 49.00     1     0           PC 17572  76.7292
+54  female 29.00     1     0               2926  26.0000
+55    male 65.00     0     1             113509  61.9792
+56    male    NA     0     0              19947  35.5000
+57  female 21.00     0     0         C.A. 31026  10.5000
+58    male 28.50     0     0               2697   7.2292
+59  female  5.00     1     2         C.A. 34651  27.7500
+60    male 11.00     5     2            CA 2144  46.9000
+61    male 22.00     0     0               2669   7.2292
+62  female 38.00     0     0             113572  80.0000
+63    male 45.00     1     0              36973  83.4750
+64    male  4.00     3     2             347088  27.9000
+65    male    NA     0     0           PC 17605  27.7208
+66    male    NA     1     1               2661  15.2458
+67  female 29.00     0     0         C.A. 29395  10.5000
+68    male 19.00     0     0          S.P. 3464   8.1583
+69  female 17.00     4     2            3101281   7.9250
+70    male 26.00     2     0             315151   8.6625
+71    male 32.00     0     0         C.A. 33111  10.5000
+72  female 16.00     5     2            CA 2144  46.9000
+73    male 21.00     0     0       S.O.C. 14879  73.5000
+74    male 26.00     1     0               2680  14.4542
+75    male 32.00     0     0               1601  56.4958
+76    male 25.00     0     0             348123   7.6500
+77    male    NA     0     0             349208   7.8958
+78    male    NA     0     0             374746   8.0500
+79    male  0.83     0     2             248738  29.0000
+80  female 30.00     0     0             364516  12.4750
+81    male 22.00     0     0             345767   9.0000
+82    male 29.00     0     0             345779   9.5000
+83  female    NA     0     0             330932   7.7875
+              Cabin Embarked
+1              <NA>        S
+2               C85        C
+3              <NA>        S
+4              C123        S
+5              <NA>        S
+6              <NA>        Q
+7               E46        S
+8              <NA>        S
+9              <NA>        S
+10             <NA>        C
+11               G6        S
+12             C103        S
+13             <NA>        S
+14             <NA>        S
+15             <NA>        S
+16             <NA>        S
+17             <NA>        Q
+18             <NA>        S
+19             <NA>        S
+20             <NA>        C
+21             <NA>        S
+22              D56        S
+23             <NA>        Q
+24               A6        S
+25             <NA>        S
+26             <NA>        S
+27             <NA>        C
+28      C23 C25 C27        S
+29             <NA>        Q
+30             <NA>        S
+31             <NA>        C
+32              B78        C
+33             <NA>        Q
+34             <NA>        S
+35             <NA>        C
+36             <NA>        S
+37             <NA>        C
+38             <NA>        S
+39             <NA>        S
+40             <NA>        C
+41             <NA>        S
+42             <NA>        S
+43             <NA>        C
+44             <NA>        C
+45             <NA>        Q
+46             <NA>        S
+47             <NA>        Q
+48             <NA>        Q
+49             <NA>        C
+50             <NA>        S
+51             <NA>        S
+52             <NA>        S
+53              D33        C
+54             <NA>        S
+55              B30        C
+56              C52        S
+57             <NA>        S
+58             <NA>        C
+59             <NA>        S
+60             <NA>        S
+61             <NA>        C
+62              B28     <NA>
+63              C83        S
+64             <NA>        S
+65             <NA>        C
+66             <NA>        C
+67              F33        S
+68             <NA>        S
+69             <NA>        S
+70             <NA>        S
+71             <NA>        S
+72             <NA>        S
+73             <NA>        S
+74             <NA>        C
+75             <NA>        S
+76            F G73        S
+77             <NA>        S
+78             <NA>        S
+79             <NA>        S
+80             <NA>        S
+81             <NA>        S
+82             <NA>        S
+83             <NA>        Q
+ [ reached getOption("max.print") -- omitted 808 rows ]
+> data<-subset(training.raw.data,select = c(2,3,5,6,7,8,10,12))
+> data
+    Survived Pclass    Sex   Age SibSp Parch     Fare
+1          0      3   male 22.00     1     0   7.2500
+2          1      1 female 38.00     1     0  71.2833
+3          1      3 female 26.00     0     0   7.9250
+4          1      1 female 35.00     1     0  53.1000
+5          0      3   male 35.00     0     0   8.0500
+6          0      3   male    NA     0     0   8.4583
+7          0      1   male 54.00     0     0  51.8625
+8          0      3   male  2.00     3     1  21.0750
+9          1      3 female 27.00     0     2  11.1333
+10         1      2 female 14.00     1     0  30.0708
+11         1      3 female  4.00     1     1  16.7000
+12         1      1 female 58.00     0     0  26.5500
+13         0      3   male 20.00     0     0   8.0500
+14         0      3   male 39.00     1     5  31.2750
+15         0      3 female 14.00     0     0   7.8542
+16         1      2 female 55.00     0     0  16.0000
+17         0      3   male  2.00     4     1  29.1250
+18         1      2   male    NA     0     0  13.0000
+19         0      3 female 31.00     1     0  18.0000
+20         1      3 female    NA     0     0   7.2250
+21         0      2   male 35.00     0     0  26.0000
+22         1      2   male 34.00     0     0  13.0000
+23         1      3 female 15.00     0     0   8.0292
+24         1      1   male 28.00     0     0  35.5000
+25         0      3 female  8.00     3     1  21.0750
+26         1      3 female 38.00     1     5  31.3875
+27         0      3   male    NA     0     0   7.2250
+28         0      1   male 19.00     3     2 263.0000
+29         1      3 female    NA     0     0   7.8792
+30         0      3   male    NA     0     0   7.8958
+31         0      1   male 40.00     0     0  27.7208
+32         1      1 female    NA     1     0 146.5208
+33         1      3 female    NA     0     0   7.7500
+34         0      2   male 66.00     0     0  10.5000
+35         0      1   male 28.00     1     0  82.1708
+36         0      1   male 42.00     1     0  52.0000
+37         1      3   male    NA     0     0   7.2292
+38         0      3   male 21.00     0     0   8.0500
+39         0      3 female 18.00     2     0  18.0000
+40         1      3 female 14.00     1     0  11.2417
+41         0      3 female 40.00     1     0   9.4750
+42         0      2 female 27.00     1     0  21.0000
+43         0      3   male    NA     0     0   7.8958
+44         1      2 female  3.00     1     2  41.5792
+45         1      3 female 19.00     0     0   7.8792
+46         0      3   male    NA     0     0   8.0500
+47         0      3   male    NA     1     0  15.5000
+48         1      3 female    NA     0     0   7.7500
+49         0      3   male    NA     2     0  21.6792
+50         0      3 female 18.00     1     0  17.8000
+51         0      3   male  7.00     4     1  39.6875
+52         0      3   male 21.00     0     0   7.8000
+53         1      1 female 49.00     1     0  76.7292
+54         1      2 female 29.00     1     0  26.0000
+55         0      1   male 65.00     0     1  61.9792
+56         1      1   male    NA     0     0  35.5000
+57         1      2 female 21.00     0     0  10.5000
+58         0      3   male 28.50     0     0   7.2292
+59         1      2 female  5.00     1     2  27.7500
+60         0      3   male 11.00     5     2  46.9000
+61         0      3   male 22.00     0     0   7.2292
+62         1      1 female 38.00     0     0  80.0000
+63         0      1   male 45.00     1     0  83.4750
+64         0      3   male  4.00     3     2  27.9000
+65         0      1   male    NA     0     0  27.7208
+66         1      3   male    NA     1     1  15.2458
+67         1      2 female 29.00     0     0  10.5000
+68         0      3   male 19.00     0     0   8.1583
+69         1      3 female 17.00     4     2   7.9250
+70         0      3   male 26.00     2     0   8.6625
+71         0      2   male 32.00     0     0  10.5000
+72         0      3 female 16.00     5     2  46.9000
+73         0      2   male 21.00     0     0  73.5000
+74         0      3   male 26.00     1     0  14.4542
+75         1      3   male 32.00     0     0  56.4958
+76         0      3   male 25.00     0     0   7.6500
+77         0      3   male    NA     0     0   7.8958
+78         0      3   male    NA     0     0   8.0500
+79         1      2   male  0.83     0     2  29.0000
+80         1      3 female 30.00     0     0  12.4750
+81         0      3   male 22.00     0     0   9.0000
+82         1      3   male 29.00     0     0   9.5000
+83         1      3 female    NA     0     0   7.7875
+84         0      1   male 28.00     0     0  47.1000
+85         1      2 female 17.00     0     0  10.5000
+86         1      3 female 33.00     3     0  15.8500
+87         0      3   male 16.00     1     3  34.3750
+88         0      3   male    NA     0     0   8.0500
+89         1      1 female 23.00     3     2 263.0000
+90         0      3   male 24.00     0     0   8.0500
+91         0      3   male 29.00     0     0   8.0500
+92         0      3   male 20.00     0     0   7.8542
+93         0      1   male 46.00     1     0  61.1750
+94         0      3   male 26.00     1     2  20.5750
+95         0      3   male 59.00     0     0   7.2500
+96         0      3   male    NA     0     0   8.0500
+97         0      1   male 71.00     0     0  34.6542
+98         1      1   male 23.00     0     1  63.3583
+99         1      2 female 34.00     0     1  23.0000
+100        0      2   male 34.00     1     0  26.0000
+101        0      3 female 28.00     0     0   7.8958
+102        0      3   male    NA     0     0   7.8958
+103        0      1   male 21.00     0     1  77.2875
+104        0      3   male 33.00     0     0   8.6542
+105        0      3   male 37.00     2     0   7.9250
+106        0      3   male 28.00     0     0   7.8958
+107        1      3 female 21.00     0     0   7.6500
+108        1      3   male    NA     0     0   7.7750
+109        0      3   male 38.00     0     0   7.8958
+110        1      3 female    NA     1     0  24.1500
+111        0      1   male 47.00     0     0  52.0000
+112        0      3 female 14.50     1     0  14.4542
+113        0      3   male 22.00     0     0   8.0500
+114        0      3 female 20.00     1     0   9.8250
+115        0      3 female 17.00     0     0  14.4583
+116        0      3   male 21.00     0     0   7.9250
+117        0      3   male 70.50     0     0   7.7500
+118        0      2   male 29.00     1     0  21.0000
+119        0      1   male 24.00     0     1 247.5208
+120        0      3 female  2.00     4     2  31.2750
+121        0      2   male 21.00     2     0  73.5000
+122        0      3   male    NA     0     0   8.0500
+123        0      2   male 32.50     1     0  30.0708
+124        1      2 female 32.50     0     0  13.0000
+125        0      1   male 54.00     0     1  77.2875
+    Embarked
+1          S
+2          C
+3          S
+4          S
+5          S
+6          Q
+7          S
+8          S
+9          S
+10         C
+11         S
+12         S
+13         S
+14         S
+15         S
+16         S
+17         Q
+18         S
+19         S
+20         C
+21         S
+22         S
+23         Q
+24         S
+25         S
+26         S
+27         C
+28         S
+29         Q
+30         S
+31         C
+32         C
+33         Q
+34         S
+35         C
+36         S
+37         C
+38         S
+39         S
+40         C
+41         S
+42         S
+43         C
+44         C
+45         Q
+46         S
+47         Q
+48         Q
+49         C
+50         S
+51         S
+52         S
+53         C
+54         S
+55         C
+56         S
+57         S
+58         C
+59         S
+60         S
+61         C
+62      <NA>
+63         S
+64         S
+65         C
+66         C
+67         S
+68         S
+69         S
+70         S
+71         S
+72         S
+73         S
+74         C
+75         S
+76         S
+77         S
+78         S
+79         S
+80         S
+81         S
+82         S
+83         Q
+84         S
+85         S
+86         S
+87         S
+88         S
+89         S
+90         S
+91         S
+92         S
+93         S
+94         S
+95         S
+96         S
+97         C
+98         C
+99         S
+100        S
+101        S
+102        S
+103        S
+104        S
+105        S
+106        S
+107        S
+108        S
+109        S
+110        Q
+111        S
+112        C
+113        S
+114        S
+115        C
+116        S
+117        Q
+118        S
+119        C
+120        S
+121        S
+122        S
+123        C
+124        S
+125        S
+ [ reached getOption("max.print") -- omitted 766 rows ]
+> data$Age[is.na(data$Age)]<-mean(data$Age)
+> data$Age[is.na(data$Age)]<-mean(data$Age, na.rm = T)
+> is.factor(data$Sex)
+[1] FALSE
+> is.factor(data$Embarked)
+[1] FALSE
+> data$Sex<-as.factor(data$Sex)
+> data$Embarked<-as.factor(data$Embarked)
+> contrasts(data$Sex)
+       male
+female    0
+male      1
+> contrasts(data$Embarked)
+  Q S
+C 0 0
+Q 1 0
+S 0 1
+> data<-data[!is.na(data$Embarked), ]
+> rownames(data)<-NULL
+> trainsubset1<-[1:207,]
+Error: unexpected '[' in "trainsubset1<-["
+> trainsubset1<-data[1:207,]
+> testsubset1<-data[208:296,]
+> trainsubset2<-data[297:504,]
+> testsubset2<-data[505:592,]
+> trainsubset3<-data[593:800,]
+> testsubset3<-data[801:889,]
+> model1<-glm(Survived ~., family=binomial(link = 'logit'), data=trainsubset1)
+> summary(model1)
+
+Call:
+glm(formula = Survived ~ ., family = binomial(link = "logit"), 
+    data = trainsubset1)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-2.1192  -0.5718  -0.4215   0.6081   2.2972  
+
+Coefficients:
+             Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  4.604519   1.245059   3.698 0.000217 ***
+Pclass      -0.804665   0.333228  -2.415 0.015746 *  
+Sexmale     -2.867150   0.407239  -7.040 1.92e-12 ***
+Age         -0.046775   0.017029  -2.747 0.006019 ** 
+SibSp       -0.632655   0.239224  -2.645 0.008178 ** 
+Parch        0.166894   0.239371   0.697 0.485667    
+Fare        -0.002155   0.006466  -0.333 0.738888    
+EmbarkedQ    0.934168   0.809901   1.153 0.248732    
+EmbarkedS   -0.107814   0.497789  -0.217 0.828531    
+---
+Signif. codes:  
+0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 264.88  on 206  degrees of freedom
+Residual deviance: 177.06  on 198  degrees of freedom
+AIC: 195.06
+
+Number of Fisher Scoring iterations: 5
+
+> model2<-glm(Survived ~., family=binomial(link = 'logit'), data=trainsubset2)
+> model3<-glm(Survived ~., family=binomial(link = 'logit'), data=trainsubset3)
+> summary(model2)
+
+Call:
+glm(formula = Survived ~ ., family = binomial(link = "logit"), 
+    data = trainsubset2)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-2.3527  -0.5983  -0.3887   0.6320   2.4521  
+
+Coefficients:
+             Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  5.621331   1.249729   4.498 6.86e-06 ***
+Pclass      -1.255789   0.324231  -3.873 0.000107 ***
+Sexmale     -2.711822   0.400709  -6.768 1.31e-11 ***
+Age         -0.030671   0.016160  -1.898 0.057709 .  
+SibSp       -0.080249   0.253834  -0.316 0.751892    
+Parch       -0.032887   0.337421  -0.097 0.922357    
+Fare        -0.005142   0.005860  -0.877 0.380221    
+EmbarkedQ    0.063073   0.810040   0.078 0.937936    
+EmbarkedS   -0.676156   0.522562  -1.294 0.195691    
+---
+Signif. codes:  
+0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 283.41  on 207  degrees of freedom
+Residual deviance: 181.67  on 199  degrees of freedom
+AIC: 199.67
+
+Number of Fisher Scoring iterations: 5
+
+> summary(model3)
+
+Call:
+glm(formula = Survived ~ ., family = binomial(link = "logit"), 
+    data = trainsubset3)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.8684  -0.5300  -0.3408   0.4397   2.3519  
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  5.94894    1.37550   4.325 1.53e-05 ***
+Pclass      -1.14040    0.35467  -3.215   0.0013 ** 
+Sexmale     -3.35514    0.56401  -5.949 2.70e-09 ***
+Age         -0.04000    0.01815  -2.203   0.0276 *  
+SibSp       -0.30634    0.27581  -1.111   0.2667    
+Parch       -0.50095    0.28681  -1.747   0.0807 .  
+Fare         0.01708    0.01180   1.447   0.1478    
+EmbarkedQ   -1.68359    0.94833  -1.775   0.0758 .  
+EmbarkedS   -0.76888    0.56326  -1.365   0.1722    
+---
+Signif. codes:  
+0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 270.79  on 207  degrees of freedom
+Residual deviance: 155.42  on 199  degrees of freedom
+AIC: 173.42
+
+Number of Fisher Scoring iterations: 6
+
+> fitted.results1<-predict(model1, newdata = subset(testsubset1, select = c(2,3,4,5,6,7,8)), type="response")
+> fitted.results2<-predict(model2, newdata = subset(testsubset2, select = c(2,3,4,5,6,7,8)), type="response")
+> fitted.results3<-predict(model3, newdata = subset(testsubset3, select = c(2,3,4,5,6,7,8)), type="response")
+> fitted.results1<-ifelse(fitted.results1>0.5,1,0)
+> fitted.results2<-ifelse(fitted.results2>0.5,1,0)
+> fitted.results3<-ifelse(fitted.results3>0.5,1,0)
+> misClasificError1<-mean(fitted.results1!=testsubset1$Survived)
+> print(paste('Accuracy', 1-misClasificError1))
+[1] "Accuracy 0.764044943820225"
+> misClasificError2<-mean(fitted.results2!=testsubset2$Survived)
+> print(paste('Accuracy', 1-misClasificError2))
+[1] "Accuracy 0.75"
+> misClasificError3<-mean(fitted.results3!=testsubset3$Survived)
+> print(paste('Accuracy', 1-misClasificError3))
+[1] "Accuracy 0.831460674157303"
+> str(data)
+'data.frame':	889 obs. of  8 variables:
+ $ Survived: num  0 1 1 1 0 0 0 0 1 1 ...
+ $ Pclass  : num  3 1 3 1 3 3 1 3 3 2 ...
+ $ Sex     : Factor w/ 2 levels "female","male": 2 1 1 1 2 2 2 2 1 1 ...
+ $ Age     : num  22 38 26 35 35 ...
+ $ SibSp   : num  1 1 0 1 0 0 0 3 0 1 ...
+ $ Parch   : num  0 0 0 0 0 0 0 1 2 0 ...
+ $ Fare    : num  7.25 71.28 7.92 53.1 8.05 ...
+ $ Embarked: Factor w/ 3 levels "C","Q","S": 3 1 3 3 3 2 3 3 3 1 ...
+> fitted.results1wholedata<-predict(model1, newdata = subset(data, select = c(2,3,4,5,6,7,8)), type="response")
+> fitted.results2wholedata<-predict(model2, newdata = subset(data, select = c(2,3,4,5,6,7,8)), type="response")
+> fitted.results3wholedata<-predict(model3, newdata = subset(data, select = c(2,3,4,5,6,7,8)), type="response")
+> fitted.results1wholedata<-ifelse(fitted.results1wholedata>0.5,1,0)
+> fitted.results2wholedata<-ifelse(fitted.results2wholedata>0.5,1,0)
+> fitted.results3wholedata<-ifelse(fitted.results3wholedata>0.5,1,0)
+> misClasificError1wholedata<-mean(fitted.results1wholedata!=data$Survived)
+> misClasificError2wholedata<-mean(fitted.results2wholedata!=data$Survived)
+> misClasificError3wholedata<-mean(fitted.results3wholedata!=data$Survived)
+> print(paste('Accuracy', 1-misClasificError1wholedata))
+[1] "Accuracy 0.803149606299213"
+> print(paste('Accuracy', 1-misClasificError2wholedata))
+[1] "Accuracy 0.797525309336333"
+> print(paste('Accuracy', 1-misClasificError3wholedata))
+[1] "Accuracy 0.779527559055118"
+> fitted.results1to2<-predict(model1, newdata = subset(testsubset2, select = c(2,3,4,5,6,7,8)), type="response")
+> fitted.results1to2<-ifelse(fitted.results1to2>0.5,1,0)
+> misClasificError1to2<-mean(fitted.results1to2!=testsubset2$Survived)
+> print(paste('Accuracy', 1-misClasificError1to2))
+[1] "Accuracy 0.784090909090909"
+> fitted.results1to3<-predict(model1, newdata = subset(testsubset3, select = c(2,3,4,5,6,7,8)), type="response")
+> fitted.results1to3<-ifelse(fitted.results1to3>0.5,1,0)
+> misClasificError1to3<-mean(fitted.results1to3!=testsubset3$Survived)
+> print(paste('Accuracy', 1-misClasificError1to3))
+[1] "Accuracy 0.797752808988764"
+> fitted.results2to1<-predict(model2, newdata = subset(testsubset1, select = c(2,3,4,5,6,7,8)), type="response")
+> fitted.results2to1<-ifelse(fitted.results2to1>0.5,1,0)
+> misClasificError2to1<-mean(fitted.results2to1!=testsubset1$Survived)
+> print(paste('Accuracy', 1-misClasificError2to1))
+[1] "Accuracy 0.786516853932584"
+> fitted.results2to3<-predict(model2, newdata = subset(testsubset3, select = c(2,3,4,5,6,7,8)), type="response")
+> fitted.results2to3<-ifelse(fitted.results2to3>0.5,1,0)
+> misClasificError2to3<-mean(fitted.results2to3!=testsubset3$Survived)
+> print(paste('Accuracy', 1-misClasificError2to3))
+[1] "Accuracy 0.797752808988764"
+> fitted.results3to1<-predict(model3, newdata = subset(testsubset1, select = c(2,3,4,5,6,7,8)), type="response")
+> fitted.results3to1<-ifelse(fitted.results3to1>0.5,1,0)
+> misClasificError3to1<-mean(fitted.results3to1!=testsubset1$Survived)
+> print(paste('Accuracy', 1-misClasificError3to1))
+[1] "Accuracy 0.775280898876405"
+> fitted.results3to2<-predict(model3, newdata = subset(testsubset2, select = c(2,3,4,5,6,7,8)), type="response")
+> fitted.results3to2<-ifelse(fitted.results3to2>0.5,1,0)
+> misClasificError3to2<-mean(fitted.results3to2!=testsubset2$Survived)
+> print(paste('Accuracy', 1-misClasificError3to2))
+[1] "Accuracy 0.75"
